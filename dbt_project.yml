@@ -1,0 +1,44 @@
+name: 'metadata_poc'
+version: '1.0.0'
+profile: 'metadata_poc'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+vars:
+  pipeline_metadata:
+    base_table: "dbo.orders_poc"
+    base_alias: "ord"
+
+    base_columns:
+      - order_id
+      - customer_id
+      - product_id
+      - order_date
+      - quantity
+
+    joins:
+      - table: "dbo.customers_poc"
+        alias: "cust"
+        join_condition: "ord.customer_id = cust.id"
+        columns:
+          - id
+          - customer_name
+          - email
+
+      - table: "dbo.products_poc"
+        alias: "prod"
+        join_condition: "ord.product_id = prod.id"
+        columns:
+          - id
+          - product_name
+          - category
+          - price
+
+    where_clause: "order_date >= '2023-01-01'"
+
+models:
+  metadata_poc:
+    staging:
+      +schema: stg
+      +materialized: table
