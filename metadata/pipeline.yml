@@ -1,3 +1,3 @@
 pipeline:
   source_tables:
-    - dbo.orders_poc
+    - dbo.orders_po
