@@ -1,1 +1,1 @@
-{{ generate_pipeline() }}
+{{ generate_table('stg_orders') }}

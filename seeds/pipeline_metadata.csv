@@ -1,0 +1,13 @@
+model_name,base_table,base_alias,base_column,join_table,join_alias,join_type,join_condition,join_column,where_clause
+stg_orders,dbo.orders_poc,ord,order_id,,,,,,order_date >= '2023-01-01'
+stg_orders,dbo.orders_poc,ord,customer_id,,,,,,
+stg_orders,dbo.orders_poc,ord,product_id,,,,,,
+stg_orders,dbo.orders_poc,ord,order_date,,,,,,
+stg_orders,dbo.orders_poc,ord,quantity,,,,,,
+stg_orders,dbo.orders_poc,ord,,dbo.customers_poc,cust,INNER,ord.customer_id = cust.id,id,
+stg_orders,dbo.orders_poc,ord,,dbo.customers_poc,cust,INNER,ord.customer_id = cust.id,customer_name,
+stg_orders,dbo.orders_poc,ord,,dbo.customers_poc,cust,INNER,ord.customer_id = cust.id,email,
+stg_orders,dbo.orders_poc,ord,,dbo.products_poc,prod,INNER,ord.product_id = prod.id,id,
+stg_orders,dbo.orders_poc,ord,,dbo.products_poc,prod,INNER,ord.product_id = prod.id,product_name,
+stg_orders,dbo.orders_poc,ord,,dbo.products_poc,prod,INNER,ord.product_id = prod.id,category,
+stg_orders,dbo.orders_poc,ord,,dbo.products_poc,prod,INNER,ord.product_id = prod.id,price,

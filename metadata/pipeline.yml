@@ -1,3 +1,0 @@
-pipeline:
-  source_tables:
-    - dbo.orders_po
